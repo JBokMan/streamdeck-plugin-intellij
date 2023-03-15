@@ -10,7 +10,10 @@ $SD.onConnected(({ actionInfo, appInfo, connection, messageType, port, uuid }) =
 });
 
 myAction.onKeyUp(({ action, context, device, event, payload }) => {
-	const socket = new WebSocket('ws://127.0.0.1:12345');
+	const username = ''; // replace with your username
+	const password = ''; // replace with your password
+
+	const socket = new WebSocket(`ws://${username}:${password}@127.0.0.1:12345/`);
 
 	socket.addEventListener('open', event => {
 		console.log('Socket connection established');
