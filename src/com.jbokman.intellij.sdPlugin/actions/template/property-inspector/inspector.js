@@ -1,6 +1,8 @@
 /// <reference path="../../../libs/js/property-inspector.js" />
 /// <reference path="../../../libs/js/utils.js" />
 
+const checkmark = document.getElementById('green-check-icon')
+
 $PI.onConnected((jsn) => {
     const form = document.querySelector('#property-inspector');
     const {actionInfo, appInfo, connection, messageType, port, uuid} = jsn;
@@ -31,7 +33,33 @@ window.sendToInspector = (data) => {
 };
 
 document.querySelector('#open-external').addEventListener('click', () => {
-    window.open('../../../external.html');
+    checkmark.style.visibility = "visible";
+    const username = ''; // replace with your username
+    const password = ''; // replace with your password
+
+    const socket = new WebSocket(`ws://${username}:${password}@127.0.0.1:12345/testConnection`);
+
+    // TODO check if error or success and show a symbol in the stream deck view
+
+    document.getElementById("green-check-icon").style.visibility = "visible";
+
+    socket.addEventListener('open', event => {
+        console.log('Socket connection established');
+    });
+
+    socket.addEventListener('message', event => {
+        console.log(`Received message: ${event.data}`);
+    });
+
+    socket.addEventListener('error', event => {
+        console.error('Socket error:', event.error);
+    });
+
+    socket.addEventListener('close', event => {
+        console.log('Socket connection closed');
+    });
+
+    socket.send("ping")
 });
 
 
