@@ -33,7 +33,6 @@ window.sendToInspector = (data) => {
 };
 
 document.querySelector('#open-external').addEventListener('click', () => {
-    checkmark.style.visibility = "visible";
     const username = ''; // replace with your username
     const password = ''; // replace with your password
 
@@ -41,14 +40,16 @@ document.querySelector('#open-external').addEventListener('click', () => {
 
     // TODO check if error or success and show a symbol in the stream deck view
 
-    document.getElementById("green-check-icon").style.visibility = "visible";
-
     socket.addEventListener('open', event => {
         console.log('Socket connection established');
+        socket.send("ping")
     });
 
     socket.addEventListener('message', event => {
         console.log(`Received message: ${event.data}`);
+        if (event.data === "pong") {
+            document.getElementById("green-check-icon").style.visibility = "visible";
+        }
     });
 
     socket.addEventListener('error', event => {
@@ -58,8 +59,6 @@ document.querySelector('#open-external').addEventListener('click', () => {
     socket.addEventListener('close', event => {
         console.log('Socket connection closed');
     });
-
-    socket.send("ping")
 });
 
 
