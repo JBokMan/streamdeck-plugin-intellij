@@ -27,7 +27,12 @@
             <div class="sdpi-item-label" data-localize title="token">Token</div>
             <div class="sdpi-item-value textarea">
                 <label for="token"></label>
-                <textarea id="token" name="token" type="textarea" maxlength="128" class="three-lines"></textarea>
+                <textarea id="token" name="token" type="textarea" maxlength="128" class="two-lines" required></textarea>
+            </div>
+            <div style="height: 35px; position: relative;" id="info-icon-container" class="check-icon-container">
+                <span title="You need to install the Stream-Deck-Connector plugin in IntelliJ. Then navigate to View -> Tool Windows -> StreamDeck. There you can generate and copy your token."
+                      style="margin: 0;position: absolute;top: 50%;left: 50%; -ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%); width: 20px; height: 20px;"
+                      id="info-icon">&#9432;</span>
             </div>
         </div>
     </form>
