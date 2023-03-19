@@ -62,10 +62,10 @@ document.querySelector('#open-external').addEventListener('click', () => {
 });
 
 
-/** 
+/**
  * TABS
  * ----
- * 
+ *
  * This will make the tabs interactive:
  * - clicking on a tab will make it active
  * - clicking on a tab will show the corresponding content
@@ -74,18 +74,18 @@ document.querySelector('#open-external').addEventListener('click', () => {
  * - a tab must have a data-target attribute that points to the id of the content
  * - the content must have the class "tab-content"
  * - the content must have an id that matches the data-target attribute of the tab
- * 
+ *
  *  <div class="tab selected" data-target="#tab1" title="Show some inputs">Inputs</div>
  *  <div class="tab" data-target="#tab2" title="Here's some text-areas">Text</div>
  * a complete tab-example can be found in the index.html
-   <div type="tabs" class="sdpi-item">
-      <div class="sdpi-item-label empty"></div>
-      <div class="tabs">
-        <div class="tab selected" data-target="#tab1" title="Show some inputs">Inputs</div>
-        <div class="tab" data-target="#tab2" title="Here's some text-areas">Text</div>
-      </div>
-    </div>
-    <hr class="tab-separator" />
+ <div type="tabs" class="sdpi-item">
+ <div class="sdpi-item-label empty"></div>
+ <div class="tabs">
+ <div class="tab selected" data-target="#tab1" title="Show some inputs">Inputs</div>
+ <div class="tab" data-target="#tab2" title="Here's some text-areas">Text</div>
+ </div>
+ </div>
+ <hr class="tab-separator" />
  * You can use the code below to activate the tabs (`activateTabs` and `clickTab` are required)
  */
 
@@ -94,13 +94,13 @@ function activateTabs(activeTab) {
     let activeTabEl = null;
     allTabs.forEach((el, i) => {
         el.onclick = () => clickTab(el);
-        if(el.dataset?.target === activeTab) {
+        if (el.dataset?.target === activeTab) {
             activeTabEl = el;
         }
     });
-    if(activeTabEl) {
+    if (activeTabEl) {
         clickTab(activeTabEl);
-    } else if(allTabs.length) {
+    } else if (allTabs.length) {
         clickTab(allTabs[0]);
     }
 }
@@ -111,9 +111,9 @@ function clickTab(clickedTab) {
     clickedTab.classList.add('selected');
     activeTab = clickedTab.dataset?.target;
     allTabs.forEach((el, i) => {
-        if(el.dataset.target) {
+        if (el.dataset.target) {
             const t = document.querySelector(el.dataset.target);
-            if(t) {
+            if (t) {
                 t.style.display = el == clickedTab ? 'block' : 'none';
             }
         }
