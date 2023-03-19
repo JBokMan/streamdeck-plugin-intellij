@@ -48,16 +48,21 @@ document.querySelector('#open-external').addEventListener('click', () => {
     socket.addEventListener('message', event => {
         console.log(`Received message: ${event.data}`);
         if (event.data === "pong") {
+            document.getElementById("red-x-icon").style.visibility = "hidden";
             document.getElementById("green-check-icon").style.visibility = "visible";
         }
     });
 
     socket.addEventListener('error', event => {
         console.error('Socket error:', event.error);
+        document.getElementById("green-check-icon").style.visibility = "hidden";
+        document.getElementById("red-x-icon").style.visibility = "visible";
     });
 
     socket.addEventListener('close', event => {
         console.log('Socket connection closed');
+        document.getElementById("green-check-icon").style.visibility = "hidden";
+        document.getElementById("red-x-icon").style.visibility = "visible";
     });
 });
 
