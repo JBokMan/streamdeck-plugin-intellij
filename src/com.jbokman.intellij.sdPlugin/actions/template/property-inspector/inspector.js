@@ -35,6 +35,7 @@ window.sendToInspector = (data) => {
 document.querySelector('#open-external').addEventListener('click', () => {
     const username = ''; // replace with your username
     const password = ''; // replace with your password
+    let connected = false
 
     const socket = new WebSocket(`ws://${username}:${password}@127.0.0.1:12345/testConnection`);
 
@@ -42,6 +43,7 @@ document.querySelector('#open-external').addEventListener('click', () => {
 
     socket.addEventListener('open', event => {
         console.log('Socket connection established');
+        connected = true
         socket.send("ping")
     });
 
@@ -50,6 +52,7 @@ document.querySelector('#open-external').addEventListener('click', () => {
         if (event.data === "pong") {
             document.getElementById("red-x-icon").style.visibility = "hidden";
             document.getElementById("green-check-icon").style.visibility = "visible";
+            document.getElementById("connection-status-message").innerText = "Successfully connected"
         }
     });
 
@@ -63,7 +66,13 @@ document.querySelector('#open-external').addEventListener('click', () => {
         console.log('Socket connection closed');
         document.getElementById("green-check-icon").style.visibility = "hidden";
         document.getElementById("red-x-icon").style.visibility = "visible";
-    });
+        if (connected) {
+            document.getElementById("connection-status-message").innerText = `Lost connection to the IntelliJ Stream-Deck-Connector plugin`
+        } else {
+            document.getElementById("connection-status-message").innerText = `Can not find IntelliJ Stream-Deck-Connector plugin or the Token is invalid`
+        }
+        connected = false
+    })
 });
 
 
