@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8"/>
@@ -17,19 +17,15 @@
     <form id="property-inspector">
         <div class="sdpi-item">
             <div data-localize class="sdpi-item-label" title="Selected action">Action</div>
-            <select name="actions" id="actions" class="sdpi-item-value">
-                <option value="delete line">Delete Line</option>
-            </select>
+            <label for="actions"></label><select name="actions" id="actions" class="sdpi-item-value">
+            <option value="delete line">Delete Line</option>
+        </select>
         </div>
 
         <div type="textarea" class="sdpi-item">
             <div class="sdpi-item-label" data-localize title="token">Token</div>
             <div class="sdpi-item-value textarea">
-                        <textarea
-                                name="message"
-                                type="textarea"
-                                maxlength="50"
-                                class="three-lines"></textarea>
+                <label><textarea name="message" type="textarea" maxlength="50" class="three-lines"></textarea></label>
             </div>
         </div>
     </form>
@@ -55,7 +51,7 @@
     </div>
 </div>
 
-<div class="sdpi-info-label hidden" style="top: -1000" value=""></div>
+<div class="sdpi-info-label hidden" style="top: -1000px" value=""></div>
 
 <!-- Stream Deck Libs -->
 <script src="../../../libs/js/constants.js"></script>
