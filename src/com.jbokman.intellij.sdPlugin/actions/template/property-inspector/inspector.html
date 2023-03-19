@@ -17,15 +17,17 @@
     <form id="property-inspector">
         <div class="sdpi-item">
             <div data-localize class="sdpi-item-label" title="Selected action">Action</div>
-            <label for="actions"></label><select name="actions" id="actions" class="sdpi-item-value">
-            <option value="delete line">Delete Line</option>
-        </select>
+            <label for="selected_action"></label>
+            <select name="selected_action" id="selected_action" class="sdpi-item-value">
+                <option value="delete_line">Delete Line</option>
+            </select>
         </div>
 
         <div type="textarea" class="sdpi-item">
             <div class="sdpi-item-label" data-localize title="token">Token</div>
             <div class="sdpi-item-value textarea">
-                <label><textarea id="token-input" name="message" type="textarea" maxlength="128" class="three-lines"></textarea></label>
+                <label for="token"></label>
+                <textarea id="token" name="token" type="textarea" maxlength="128" class="three-lines"></textarea>
             </div>
         </div>
     </form>

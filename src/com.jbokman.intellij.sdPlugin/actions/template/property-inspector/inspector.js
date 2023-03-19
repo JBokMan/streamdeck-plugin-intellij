@@ -32,7 +32,7 @@ window.sendToInspector = (data) => {
 
 document.querySelector('#open-external').addEventListener('click', () => {
     const username = '';
-    const password = document.getElementById("token-input").value;
+    const password = document.getElementById("token").value;
     let connected = false
 
     const socket = new WebSocket(`ws://${username}:${password}@127.0.0.1:12345/testConnection`);
