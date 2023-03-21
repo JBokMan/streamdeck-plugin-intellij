@@ -1,9 +1,9 @@
 {
   "Description": "Use this to create your own plugin", 
-  "Name": "Stream Deck Template", 
-  "Category": "Templates", 
+  "Name": "IntelliJ",
+  "Category": "IntelliJ",
   "com.jbokman.intellij.action": {
-    "Name": "Action", 
+    "Name": "Intelli Action",
     "Tooltip": "This is the only action in this plugin"
   },
   "Localization": {

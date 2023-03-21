@@ -20,12 +20,12 @@
 			"MinimumVersion": "10"
 		}
 	],
-	"Category": "Template Plugin",
-	"CategoryIcon": "actions/template/assets/actionimage",
+	"Category": "IntelliJ",
+	"CategoryIcon": "actions/template/assets/categoryIcon",
 	"Actions": [
 		{
-			"Icon": "actions/template/assets/actionimage",
-			"Name": "Example Action",
+			"Icon": "actions/template/assets/actionImage",
+			"Name": "Intelli Action",
 			"Controllers": ["Keypad", "Encoder"],
 			"Encoder": {
 				"layout": "$B1",

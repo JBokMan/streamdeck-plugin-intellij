@@ -1,9 +1,9 @@
 {
   "Description": "Nimm diese Vorlage für dein erstes Plugin", 
-  "Name": "Stream Deck Template", 
-  "Category": "Templates", 
+  "Name": "IntelliJ",
+  "Category": "IntelliJ",
   "com.jbokman.intellij.action": {
-    "Name": "Action", 
+    "Name": "Intelli Action",
     "Tooltip": "Dies ist die einzige 'Action' in diesem Template"
   },
   "Localization": {
